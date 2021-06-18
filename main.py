@@ -44,7 +44,7 @@ class SpaceProbe:
         # Movimenta as sondas
         for probe in self.probes:
             probe.execute_movement()
-            # print com o local que a sonda parou
+            # print com o local que a sonda parou e as bandeiras
             print(probe.x, probe.y, probe.direction, probe.flags)
 
 

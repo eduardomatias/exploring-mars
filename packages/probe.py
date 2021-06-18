@@ -12,16 +12,16 @@ class Probe:
         self.initial_position, self.movements, self.area = probe_valid
         self.x, self.y, self.direction = self.initial_position
         self.flags = []
-        self.move_functions = {
+        self.commands = {
             'M': self.__move,
             'L': self.__turn_left,
             'R': self.__turn_rigth,
-            'F': self.__flag
+            'F': self.__add_flag
         }
 
     def execute_movement(self):
         for movement in self.movements:
-            self.move_functions[movement]()
+            self.commands[movement]()
 
     def __move(self):
         # Move a sonda apenas se não ultrapassar o limite da area
@@ -44,5 +44,6 @@ class Probe:
         index_direction = DIRECTION.index(self.direction)
         self.direction = DIRECTION[index_direction + 1 if (index_direction + 1) < 4 else 0]
 
-    def __flag(self):
-        self.flags.append(f'{self.x} - {self.y}')
+    def __add_flag(self):
+        # Registra o local da bandeira
+        self.flags.append((self.x, self.y))
