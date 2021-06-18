@@ -45,7 +45,7 @@ class SpaceProbe:
         for probe in self.probes:
             probe.execute_movement()
             # print com o local que a sonda parou
-            print(probe.x, probe.y, probe.direction)
+            print(probe.x, probe.y, probe.direction, probe.flags)
 
 
 if __name__ == "__main__":

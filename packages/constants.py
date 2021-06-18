@@ -1,2 +1,2 @@
 DIRECTION = ["N", "E", "S", "W"]
-COMMAND = ["L", "R", "M"]
+COMMAND = ["L", "R", "M", "F"]

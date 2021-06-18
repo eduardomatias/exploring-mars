@@ -11,10 +11,12 @@ class Probe:
 
         self.initial_position, self.movements, self.area = probe_valid
         self.x, self.y, self.direction = self.initial_position
+        self.flags = []
         self.move_functions = {
             'M': self.__move,
             'L': self.__turn_left,
-            'R': self.__turn_rigth
+            'R': self.__turn_rigth,
+            'F': self.__flag
         }
 
     def execute_movement(self):
@@ -41,3 +43,6 @@ class Probe:
         # Vira a sonda para direita
         index_direction = DIRECTION.index(self.direction)
         self.direction = DIRECTION[index_direction + 1 if (index_direction + 1) < 4 else 0]
+
+    def __flag(self):
+        self.flags.append(f'{self.x} - {self.y}')
